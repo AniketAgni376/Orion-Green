@@ -1,5 +1,7 @@
 import "./index.css";
 import logo from "./assets/orion-green-logo.png";
+import WhyOrion from "./components/WhyOrion";
+import Solutions from "./components/Solutions";
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         </a>
       </nav>
       
-<br /> <br />
+<br /> 
       <section className="hero">
         <div className="hero-content">
           <p className="eyebrow">RENEWABLE ENERGY SOLUTIONS</p>
@@ -31,6 +33,7 @@ function App() {
             Clean Energy.
             <br />
             <span>Green Future.</span>
+            
           </h1>
 
           <p className="hero-description">
@@ -63,7 +66,9 @@ function App() {
             <small>POWERING TOMORROW</small>
           </div>
         </div>
-      </section>
+        </section>
+        <WhyOrion />
+        <Solutions />
     </main>
   );
 }
