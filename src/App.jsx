@@ -1,15 +1,23 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./index.css";
+
 import logo from "./assets/orion-green-logo.png";
+
 import WhyOrion from "./components/WhyOrion";
 import Solutions from "./components/Solutions";
 
-function App() {
+import ResidentialSolar from "./pages/ResidentialSolar";
+import CommercialSolar from "./pages/CommercialSolar";
+import IndustrialSolar from "./pages/IndustrialSolar";
+import SmoothScroll from "./components/SmoothScroll";
+
+function Home() {
   return (
     <main className="app">
       <nav className="navbar">
-        <a href="/" className="brand">
+        <Link to="/" className="brand">
           <img src={logo} alt="Orion Green" />
-        </a>
+        </Link>
 
         <div className="nav-links">
           <a href="#solutions">Solutions</a>
@@ -23,8 +31,7 @@ function App() {
           <span>↗</span>
         </a>
       </nav>
-      
-<br /> 
+
       <section className="hero">
         <div className="hero-content">
           <p className="eyebrow">RENEWABLE ENERGY SOLUTIONS</p>
@@ -33,7 +40,6 @@ function App() {
             Clean Energy.
             <br />
             <span>Green Future.</span>
-            
           </h1>
 
           <p className="hero-description">
@@ -66,10 +72,41 @@ function App() {
             <small>POWERING TOMORROW</small>
           </div>
         </div>
-        </section>
-        <WhyOrion />
-        <Solutions />
+      </section>
+
+      <WhyOrion />
+      <Solutions />
+      <SmoothScroll />
     </main>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+
+        {/* Home */}
+        <Route path="/" element={<Home />} />
+
+        {/* Solar Solutions */}
+        <Route
+          path="/solutions/residential"
+          element={<ResidentialSolar />}
+        />
+
+        <Route
+          path="/solutions/commercial"
+          element={<CommercialSolar />}
+        />
+
+        <Route
+          path="/solutions/industrial"
+          element={<IndustrialSolar />}
+        />
+
+      </Routes>
+    </Router>
   );
 }
 

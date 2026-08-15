@@ -1,5 +1,5 @@
 import { Home, Building2, Factory, ArrowUpRight } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const solutions = [
   {
     number: "01",
@@ -80,10 +80,20 @@ function Solutions() {
                   </div>
                 </div>
 
-                <div className="solution-bottom">
+                <Link
+                  to={
+                    solution.number === "01"
+                      ? "/solutions/residential"
+                      : solution.number === "02"
+                      ? "/solutions/commercial"
+                      : "/solutions/industrial"
+                  }
+                  className="solution-bottom"
+                >
                   <span>Explore solution</span>
                   <ArrowUpRight size={20} />
-                </div>
+                </Link>
+
 
               </article>
             );
